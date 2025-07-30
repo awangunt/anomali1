@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Pengetahuan Umum - Soal 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4; /* cite: 2 */
+      padding: 40px; /* cite: 2 */
+      display: flex; /* cite: 2 */
+      justify-content: center; /* cite: 2 */
+    }
+
+    .quiz-box {
+      background: #fff; /* cite: 3 */
+      padding: 30px 40px; /* cite: 3 */
+      border-radius: 8px; /* cite: 3 */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* cite: 3 */
+      max-width: 500px; /* cite: 3 */
+      width: 100%; /* cite: 3 */
+    }
+
+    h2 {
+      margin-top: 0; /* cite: 4 */
+    }
+
+    .option {
+      margin: 10px 0; /* cite: 5 */
+    }
+
+    .option input {
+      margin-right: 10px; /* cite: 6 */
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px; /* cite: 7 */
+      background: #007BFF; /* cite: 8 */
+      color: #fff; /* cite: 8 */
+      border: none; /* cite: 8 */
+      border-radius: 4px; /* cite: 8 */
+      cursor: pointer; /* cite: 8 */
+    }
+
+    button:hover {
+      background: #0056b3; /* cite: 9 */
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-left: 5px solid #007BFF; /* cite: 10 */
+      background: #e7f3ff; /* cite: 11 */
+      display: none;
+    }
+
+    .correct {
+      border-left-color: #28a745;
+      background: #e9f7ec; /* cite: 12 */
+    }
+
+    .wrong {
+      border-left-color: #dc3545;
+      background: #fbebed; /* cite: 13 */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <h2>Kuis Pilihan Ganda - Soal 1</h2>
+
+    <p><strong>Manakah planet terbesar di Tata Surya kita?</strong></p>
+
+    <div class="option">
+      <label><input type="radio" name="answer" value="A"> A. Bumi</label>
+    </div>
+    <div class="option">
+      <label><input type="radio" name="answer" value="B"> B. Mars</label>
+    </div>
+    <div class="option">
+      <label><input type="radio" name="answer" value="C"> C. Jupiter</label>
+    </div>
+    <div class="option">
+      <label><input type="radio" name="answer" value="D"> D. Saturnus</label>
+    </div>
+
+    <button onclick="checkAnswer()">Cek Jawaban</button>
+    <button><a href="kuis2.html" style="color:white; text-decoration:none;">Lanjut ke Soal 2</a></button>
+
+    <div class="result" id="resultBox">
+      <span id="resultText"></span>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked'); /* cite: 15 */
+      const resultBox = document.getElementById('resultBox'); /* cite: 15 */
+      const resultText = document.getElementById('resultText'); /* cite: 15 */
+
+      if (!selected) {
+        alert('Silakan pilih salah satu jawaban!'); /* cite: 16 */
+        return; /* cite: 16 */
+      }
+
+      const userAnswer = selected.value;
+      const correctAnswer = 'C'; /* cite: 17 */
+
+      if (userAnswer === correctAnswer) {
+        resultBox.className = 'result correct'; /* cite: 18 */
+        resultText.innerHTML = '<strong>Benar!</strong> Jupiter adalah planet terbesar di Tata Surya kita.'; /* cite: 19 */
+      } else {
+        resultBox.className = 'result wrong'; /* cite: 20 */
+        resultText.innerHTML = '<strong>Salah.</strong> Jawaban yang benar adalah <strong>C. Jupiter</strong>.';
+      }
+
+      resultBox.style.display = 'block'; /* cite: 21 */
+    }
+  </script>
+
+</body>
+</html>
